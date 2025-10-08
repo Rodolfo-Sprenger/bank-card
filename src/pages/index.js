@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 export default function Home() {
@@ -11,18 +11,20 @@ export default function Home() {
   };
 
   return (
-    // Fundo com imagem, h-screen e rounded-3xl (se quiser na tela toda, remova o rounded-3xl)
-    <div className="h-screen flex flex-col justify-center items-center text-white bg-cover bg-center bg-[url('/background.jpg')]">
-      
-      {/* Overlay Escuro para destacar o conteúdo, ocupando toda a tela */}
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
-      
+    // Fundo com gradiente sofisticado (dark/tech)
+    <div className="h-screen flex flex-col justify-center items-center text-white bg-gray-900">
+      {/* Overlay/Efeito de Gradiente Sutil para adicionar profundidade */}
+      {/* Gradiente radial no centro, com cores escuras e azuladas/roxas sutis */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-900 to-indigo-900 opacity-90"></div>
+
+      {/* Efeito de Backdrop-blur mais leve para o fundo, mantendo a sofisticação */}
+      <div className="absolute inset-0 backdrop-blur-sm"></div>
+
       {/* Container principal e centralizado do formulário */}
       <div className="relative w-full max-w-sm mx-auto p-8 rounded-3xl shadow-2xl bg-white/10 backdrop-blur-xl border border-white/20">
-        
         {/* Título com mais destaque */}
-        <h1 className="text-6xl sm:text-7xl font-extrabold text-center mb-10 tracking-wider text-shadow-lg drop-shadow-lg">
-          <span className="text-orange-400">Digi</span>-Wallet
+        <h1 className="text-8xl sm:text-6xl font-extrabold text-center mb-10 tracking-wider text-shadow-lg drop-shadow-lg">
+          <span className="text-orange-400">MB</span>-Wallet
         </h1>
 
         <form onSubmit={handleLogin} className="flex flex-col space-y-6">
@@ -41,9 +43,9 @@ export default function Home() {
           {/* Botão de Login com Gradiente, Sombra, Efeito de Pressionar e Hover */}
           <button
             type="submit"
-            className="w-full py-3 bg-gradient-to-r from-orange-600 to-orange-800 text-white text-xl font-bold rounded-xl mt-4 shadow-xl hover:shadow-2xl hover:from-orange-700 hover:to-orange-900 transition duration-300 transform active:scale-95"
+            className="w-full py-3 bg-gradient-to-r from-orange-400 to-orange-500 text-white text-xl font-bold rounded-xl mt-4 shadow-xl hover:shadow-2xl hover:from-orange-700 hover:to-orange-900 transition duration-300 transform active:scale-95"
           >
-            Acessar
+            Acess
           </button>
         </form>
 
@@ -53,7 +55,7 @@ export default function Home() {
             href="/recuperar"
             className="text-sm font-medium text-white/80 hover:text-orange-300 transition duration-300 hover:underline"
           >
-            Esqueceu a Senha?
+            Forgot Password?
           </Link>
         </div>
       </div>

@@ -3,19 +3,57 @@ import { useRouter } from 'next/router';
 
 export default function Navbar() {
   const router = useRouter();
+  // Função para checar se o link é o ativo, para dar destaque
   const isActive = (path) => router.pathname === path;
 
   return (
-    <nav className="bg-slate-900 text-white p-4 flex justify-between items-center">
-      <Link href="/" className="text-2xl font-bold text-blue-400">🛒 TechStore</Link>
+    // Fundo escuro (gray-900), com um toque de borda sutil na parte inferior para profundidade
+    <nav className="bg-gray-900/95 text-white p-4 flex justify-between items-center shadow-lg border-b border-gray-700/50 backdrop-blur-sm fixed w-full z-50 top-0">
+      
+      {/* Logotipo Digi-Wallet com destaque em laranja */}
+      <Link href="/" className="text-2xl font-extrabold tracking-wider">
+        <span className="text-orange-400">MB</span>-Wallet
+      </Link>
 
-      <div className="flex space-x-6">
-        <Link href="/" className={isActive('/') ? 'bg-blue-600 px-3 py-2 rounded' : 'px-3 py-2 hover:bg-slate-700 rounded'}>
-          🏠 Início
+      {/* Links de navegação */}
+      <div className="flex space-x-8 text-lg font-medium">
+        
+        {/* Link 'Início' */}
+        <Link 
+          href="/home" 
+          className={
+            isActive('/home') 
+              ? 'text-orange-400 border-b-2 border-orange-500 pb-1 transition duration-200' 
+              : 'text-white/80 hover:text-orange-400 transition duration-200'
+          }
+        >
+          Profile
         </Link>
-        <Link href="/produtos" className={isActive('/produtos') ? 'bg-blue-600 px-3 py-2 rounded' : 'px-3 py-2 hover:bg-slate-700 rounded'}>
-          🧾 Produtos
+        
+        {/* Link 'Cartões' (assumindo que seja uma rota principal) */}
+        <Link 
+          href="/cartoes" 
+          className={
+            isActive('/cartoes') 
+              ? 'text-orange-400 border-b-2 border-orange-500 pb-1 transition duration-200' 
+              : 'text-white/80 hover:text-orange-400 transition duration-200'
+          }
+        >
+          Cards
         </Link>
+        
+        {/* Link 'Extrato' (ou outra seção importante) */}
+        <Link 
+          href="/extrato" 
+          className={
+            isActive('/extrato') 
+              ? 'text-orange-400 border-b-2 border-orange-500 pb-1 transition duration-200' 
+              : 'text-white/80 hover:text-orange-400 transition duration-200'
+          }
+        >
+          Info
+        </Link>
+        
       </div>
     </nav>
   );

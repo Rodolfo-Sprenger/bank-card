@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-// Ícones SVG para simular o chip e o logo de contato
+// Ícone SVG para simular o chip
 const CardChip = () => (
   <svg className="w-10 h-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="2" y="5" width="20" height="14" rx="3" fill="#D4AF37" />
@@ -12,14 +12,20 @@ const CardChip = () => (
   </svg>
 );
 
+// Ícone SVG para Pagamento por Aproximação (Contactless) - Apenas os arcos
 const ContactlessIcon = () => (
-  <svg className="w-8 h-8 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" opacity="0" />
-    <path d="M8 10h.01" />
-    <path d="M4.24 7.76c2.1-2.1 5.5-2.1 7.6 0" />
-    <path d="M19.76 7.76c-2.1-2.1-5.5-2.1-7.6 0" />
-    <path d="M2.5 12c.7-3.6 3.9-6.5 7.8-6.5" />
-    <path d="M13.7 5.5c3.9.7 6.9 3.6 7.8 6.5" />
+  <svg 
+    className="w-7 h-7 text-white opacity-90" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+  >
+    <path d="M13.2 11c1.8 0 3.2 1.4 3.2 3.2v.1" />
+    <path d="M13.2 7c4 0 7.2 3.2 7.2 7.2v.1" />
+    <path d="M13.2 3c6.2 0 11.2 5 11.2 11.2v.1" />
   </svg>
 );
 
@@ -28,15 +34,15 @@ export default function Cartoes() {
   const initialCards = [
     {
       id: 1,
-      nome: "VICKTORIA",
+      nome: "RODOLFO S LIMA",
       numero: "4567 89** **** 1234",
       validity: "12/28",
       cor: "from-blue-700 to-indigo-900",
-      bandeira: "VISA" // Adicionei bandeira
+      bandeira: "VISA" 
     },
     {
       id: 2,
-      nome: "BRUNA M PEREIRA",
+      nome: "RODOLFO S LIMA",
       numero: "5412 77** **** 5678",
       validity: "08/27",
       cor: "from-red-600 to-purple-800",
@@ -44,18 +50,19 @@ export default function Cartoes() {
     },
     {
       id: 3,
-      nome: "DIEGO S LIMA",
+      nome: "RODOLFO S LIMA",
       numero: "3745 61** **** 9012",
       validity: "03/30",
       cor: "from-green-600 to-teal-800",
       bandeira: "AMEX"
     },
+    
     {
       id: 4,
-      nome: "RODOLFO A V",
+      nome: "RODOLFO S LIMA",
       numero: "6060 11** **** 9012",
-      validity: "03/30",
-      cor: "from-slate-600 to-gray-900",
+      validity: "02/34",
+      cor: "from-slate-800 to-gray-900",
       bandeira: "ELO"
     }
   ];
@@ -105,14 +112,14 @@ export default function Cartoes() {
   };
 
   return (
-    // Fundo com gradiente elegante e altura mínima de tela
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-zinc-800 to-black text-white p-4 sm:p-8 font-sans">
+    // Fundo com gradiente elegante (mais profundo que o preto puro) e altura mínima de tela
+    <div className="min-h-screen bg-gradient-to-br from-[#090a1c] via-[#2d3d68] to-gray-900 text-white p-4 sm:p-8 font-sans">
       <div className="max-w-screen-md mx-auto">
         
         {/* Título e Botão de Adicionar */}
         <div className="flex justify-between items-center mb-8 pt-4">
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-200 drop-shadow-md">
-            Minha Carteira
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-200 drop-shadow-md">
+            My Wallet Cards
           </h1>
           <button
             onClick={() => {
@@ -121,7 +128,7 @@ export default function Cartoes() {
               setDadosFormulario({ nome: "", numero: "", validity: "", cor: "from-indigo-500 to-blue-700", bandeira: "VISA" });
             }}
             // Botão "+" com estilo chamativo
-            className="bg-orange-500 text-white text-3xl font-light w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-orange-600 transition duration-300 transform hover:scale-105 active:scale-95"
+            className="bg-orange-400 text-white text-3xl font-light w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-orange-600 transition duration-300 transform hover:scale-105 active:scale-95"
             title="Adicionar novo cartão"
           >
             +
@@ -184,7 +191,7 @@ export default function Cartoes() {
               key={cartao.id}
               // Estilo de Cartão de Crédito Real: Tamanho, Gradiente e Sombra forte
               className={`w-80 h-48 relative bg-gradient-to-br ${cartao.cor} text-white 
-                shadow-[0_20px_40px_rgba(0,0,0,0.5)] 
+                shadow-[0_25px_50px_rgba(0,0,0,0.6)] 
                 rounded-xl p-6 hover:scale-[1.03] transition-all duration-500 cursor-pointer 
                 font-mono tracking-wide overflow-hidden`}
             >
@@ -196,32 +203,46 @@ export default function Cartoes() {
                 }}
               ></div>
 
-              {/* Linha 1: Chip e Contato */}
+              {/* Linha 1: Chip, Bandeira e Contato */}
               <div className="relative z-10 flex justify-between items-start mb-4">
                 <CardChip />
-                <ContactlessIcon />
+                
+                {/* Agrupamento da Bandeira e Ícone Contactless */}
+                <div className="flex items-center space-x-2">
+                    {/* 1. Bandeira (Primeiro elemento) */}
+                    <div className="text-lg font-bold italic opacity-90 drop-shadow-lg leading-none">
+                        {cartao.bandeira}
+                    </div>
+                    {/* 2. Ícone Contactless (Segundo elemento) */}
+                    <ContactlessIcon />
+                </div>
               </div>
 
-              {/* Linha 2: Número do Cartão */}
-              <p className="relative z-10 text-xl tracking-[0.15em] font-semibold mb-3 pt-2 drop-shadow-md">
+              {/* Linha 2: Número do Cartão - Efeito Metálico (Corrigido para usar a classe personalizada) */}
+              <p className="relative z-10 text-2xl tracking-[0.15em] font-semibold mb-3 pt-2 
+                          text-gray-200 
+                          text-shadow-metal-lg">
                 {cartao.numero}
               </p>
 
-              {/* Linha 3: Titular e Validade */}
+              {/* Linha 3: Titular e Validade (Fontes ajustadas) - Efeito Metálico (Corrigido para usar a classe personalizada) */}
               <div className="relative z-10 flex justify-between items-end text-sm font-light uppercase">
                 <div>
-                    <p className="text-[10px] opacity-80 mb-1">Titular</p>
-                    <p className="text-base font-medium tracking-wider">{cartao.nome}</p>
+                  <p className="text-xs opacity-80 mb-1"></p>
+                  <p className="text-lg font-medium tracking-wider leading-none 
+                              text-gray-200 
+                              text-shadow-metal-sm">
+                    {cartao.nome}
+                  </p>
                 </div>
                 <div className="text-right">
-                    <p className="text-[10px] opacity-80 mb-1">Válido Até</p>
-                    <p className="text-base font-medium">{cartao.validity}</p>
+                  <p className="text-xs opacity-80 mb-1">Valid</p>
+                  <p className="text-lg font-medium tracking-widest leading-none 
+                              text-gray-200 
+                              text-shadow-metal-sm">
+                    {cartao.validity}
+                  </p>
                 </div>
-              </div>
-
-              {/* Bandeira (Canto Inferior Direito) */}
-              <div className="absolute bottom-4 right-4 text-xl font-bold italic opacity-90 drop-shadow-lg">
-                {cartao.bandeira}
               </div>
 
               {/* Botões de Ação (Aparecem no topo) */}
@@ -234,7 +255,7 @@ export default function Cartoes() {
                   className="bg-yellow-500/90 text-gray-900 text-xs px-3 py-1 rounded-full shadow-md hover:bg-yellow-400 transition transform active:scale-95"
                   title="Editar cartão"
                 >
-                  EDITAR
+                  EDIT
                 </button>
                 <button
                   onClick={(e) => {
@@ -244,7 +265,7 @@ export default function Cartoes() {
                   className="bg-red-500/90 text-white text-xs px-3 py-1 rounded-full shadow-md hover:bg-red-600 transition transform active:scale-95"
                   title="Remover cartão"
                 >
-                  REMOVER
+                  REMOVE
                 </button>
               </div>
             </div>
