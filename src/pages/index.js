@@ -21,17 +21,17 @@ export default function Home() {
           <input
             type="text"
             placeholder="Username"
-            className="w-full px-4 py-4 text-lg rounded-xl bg-white text-gray-200 placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-300"
+            className="w-full px-4 py-4 text-lg rounded-xl bg-white text-gray-700 placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-300"
           />
           <input
             type="password"
             placeholder="Password"
-            className="w-full px-4 py-4 text-lg rounded-xl bg-white text-gray-200 placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-300"
+            className="w-full px-4 py-4 text-lg rounded-xl bg-white text-gray-700 placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-300"
           />
 
           <button
             type="submit"
-            className="w-full py-2 bg-gray-900 text-white text-lg font-semibold rounded-xl mt-3 hover:bg-gray-900 transition-colors"
+            className="w-full py-2 bg-orange-800 text-white text-lg font-semibold rounded-xl mt-3 hover:bg-orange-900 transition-colors"
           >
             Login
           </button>
@@ -42,7 +42,7 @@ export default function Home() {
             href="/recuperar"
             className="text-sm text-shadow-gray-300 hover:underline"
           >
-            Esqueci minha senha
+            Forgot Password?
           </Link>
         </div>
       </div>
