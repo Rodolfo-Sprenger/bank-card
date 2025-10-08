@@ -13,8 +13,8 @@ export default function Home() {
   return (
     <div className="h-screen rounded-3xl flex flex-col justify-center text-white px-8 bg-cover bg-center bg-[url('/background.jpg')]">
       <div className="w-full max-w-sm mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-10">
-          Login
+        <h1 className="text-8xl font-bold text-center mb-10">
+          Digi-Wallet
         </h1>
 
         <form onSubmit={handleLogin} className="flex flex-col space-y-6">
